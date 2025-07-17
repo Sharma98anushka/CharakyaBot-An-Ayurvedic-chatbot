@@ -1,4 +1,4 @@
-## Medical Chatbot
+## CharakyaBot-An-Ayurvedic-chatbot
 An AI-powered Swastha designed to provide accurate, real-time, and context-aware responses to health-related queries. Built with Cohere’s LLM for natural language processing and Pinecone’s vector search for efficient medical information retrieval, this chatbot serves as a smart virtual assistant for users seeking reliable home care insights.
 
 ### Features
