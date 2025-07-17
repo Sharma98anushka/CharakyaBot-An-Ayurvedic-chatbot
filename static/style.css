@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #fce3ec, #ffe8cc);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+}
+
+.title {
+  background: linear-gradient(90deg, #ff6ec4, #7873f5);
+  color: white;
+  padding: 24px;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.box {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  margin: 18px 0;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.icon {
+  background: #7873f5;
+  color: white;
+  font-size: 20px;
+  width: 46px;
+  height: 46px;
+  text-align: center;
+  line-height: 46px;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.msg {
+  background: #fff;
+  color: #333;
+  font-size: 16px;
+  border-radius: 18px;
+  margin-left: 15px;
+  padding: 14px 20px;
+  max-width: 80%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  position: relative;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.item.right {
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+}
+
+.item.right .msg {
+  background: linear-gradient(135deg, #d4fc79, #96e6a1);
+  color: #333;
+  margin-left: 0;
+  margin-right: 15px;
+}
+
+.typing-area {
+  background: rgba(255, 255, 255, 0.35);
+  padding: 16px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.input-field {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+textarea {
+  flex-grow: 1;
+  padding: 14px 22px;
+  border: none;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  outline: none;
+  color: #333;
+  resize: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  line-height: 1.5;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+textarea::placeholder {
+  color: #666;
+}
+
+button {
+  background: linear-gradient(135deg, #ff6ec4, #7873f5);
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(128, 72, 207, 0.4);
+  user-select: none;
+}
+
+button#clear-btn {
+  background: #dc3545;
+  padding: 8px 14px;
+  font-size: 16px;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.5);
+  transition: background 0.3s ease;
+}
+
+button#clear-btn:hover {
+  background: #b02a37;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+.typing-msg {
+  font-style: italic;
+  display: flex;
+  gap: 3px;
+  margin-left: 15px;
+  color: #333;
+}
+
+.typing-msg .dot {
+  animation: blink 1s infinite;
+  opacity: 0.3;
+}
+
+.typing-msg .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-msg .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feedback {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+  font-size: 18px;
+}
+
+.feedback i {
+  cursor: pointer;
+  color: #aaa;
+  transition: color 0.3s;
+}
+
+.feedback i:hover {
+  color: #444;
+}
+
+.disclaimer {
+  font-size: 12px;
+  color: #888;
+  text-align: center;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .msg {
+    font-size: 14px;
+  }
+
+  button {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}

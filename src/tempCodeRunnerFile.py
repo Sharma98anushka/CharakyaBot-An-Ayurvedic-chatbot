@@ -1,10 +1,9 @@
 import json
 import random
 import re
-import fitz  # PyMuPDF
-from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader
+from langchain.document_loaders import PyPDFLoader, DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain.embeddings import HuggingFaceEmbeddings
 
 
 def load_pdf_file(data):
@@ -32,18 +31,3 @@ def get_intent_response(user_input, intent_data):
             if re.fullmatch(pattern, user_input) or re.search(pattern, user_input):
                 return random.choice(intent["responses"])
     return None
-
-def extract_unique_remedies_from_pdf(pdf_path="data/charak_samhita.pdf"):
-    try:
-        doc = fitz.open(pdf_path)
-        text = ""
-        for page in doc:
-            text += page.get_text()
-
-        # Simple regex: Capture words starting with a capital letter (e.g., Ashwagandha, Triphala)
-        matches = re.findall(r'\b[A-Z][a-z]{2,}\b', text)
-        remedies = list(set(matches))
-        return sorted(remedies)
-    except Exception as e:
-        print(f"Error extracting remedies: {e}")
-        return []
