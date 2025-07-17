@@ -3,12 +3,17 @@ An AI-powered Swastha designed to provide accurate, real-time, and context-aware
 
 ### Features
 > AI-Powered Responses: Uses Cohere's LLM to generate human-like answers.
-> Smart Information Retrieval: Fetches the most relevant medical info from Pinecone.
+> Smart Information Retrieval: Fetches the most relevant ayurvedic info from Pinecone.
 > Seamless Web Interface: Built with Flask, providing an easy-to-use chatbot UI.
 > Secure API Integration: Keeps credentials safe with .env configuration.
 
 ### Tech Stack
-Backend: Flask, Python, LangChain
-AI Model: Cohere AI (LLM)
-Vector Search: Pinecone
-Frontend: HTML, CSS, JavaScript
+Cohere LLM – For query understanding and natural language generation
+
+LangChain – For building the RAG pipeline and chaining retrieval + generation steps
+
+Pinecone – For fast and accurate semantic vector search
+
+Flask – Backend server to handle query-routing and frontend interactions
+
+PDF Preprocessing – Used to parse and clean the Charak Samhita for vector indexing 
